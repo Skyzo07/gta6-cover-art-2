@@ -1,0 +1,38 @@
+@font-face { font-family: 'Anton'; src: url('./fonts/Anton-Regular.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Pacifico'; src: url('./fonts/Pacifico-Regular.ttf') format('truetype'); font-display: swap; }
+
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: #120e24; color: #f4eefc; font: 15px/1.45 system-ui, sans-serif; }
+body { background: linear-gradient(160deg, #1b1038 0%, #120e24 45%, #2a0f2e 100%); }
+
+.top { padding: 22px 28px 6px; }
+.top h1 { margin: 0; font-family: 'Anton', sans-serif; font-size: 34px; letter-spacing: 1px; text-transform: uppercase; color: #fff; text-shadow: 3px 3px 0 #ff2e88, 6px 6px 0 rgba(0,0,0,.45); }
+.top h1 span { color: #ffb347; }
+.top p { margin: 6px 0 0; color: #c9b8e8; max-width: 720px; }
+
+.app { display: flex; gap: 26px; align-items: flex-start; padding: 18px 28px 28px; }
+.controls { width: 300px; flex: none; display: flex; flex-direction: column; gap: 16px; }
+.group { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: 14px; }
+.group h2 { margin: 0 0 10px; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #ffb347; }
+.group label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 13px; margin-bottom: 8px; }
+.note { margin: 0 0 8px; color: #c9b8e8; font-size: 13px; }
+input[type=text], select { font: inherit; padding: 8px 10px; border: 1px solid #6b5a9e; border-radius: 6px; background: #241a44; color: #fff; }
+input[type=file] { font: inherit; color: #c9b8e8; }
+input[type=range] { accent-color: #ff2e88; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; }
+button { font: inherit; font-weight: 700; padding: 8px 12px; border: 1px solid #6b5a9e; border-radius: 8px; background: #241a44; color: #fff; cursor: pointer; }
+button:hover { border-color: #ff2e88; }
+button.on { background: #ff2e88; border-color: #ff2e88; color: #fff; }
+button.big { width: 100%; padding: 13px; font-size: 17px; background: linear-gradient(90deg, #ff2e88, #ff7a3d); border: 0; }
+#status { min-height: 20px; margin: 8px 0 0; color: #8ef0c8; font-size: 13px; }
+
+.preview { flex: 1; min-width: 0; }
+.preview canvas { width: 100%; height: auto; display: block; border-radius: 6px; box-shadow: 0 14px 44px rgba(0,0,0,.55); background: #000; cursor: crosshair; }
+.hint { color: #c9b8e8; font-size: 13px; }
+
+/* Screenshot scenes: cover fills the whole window, controls hidden. */
+body.shot-cover { background: #000; }
+body.shot-cover .top, body.shot-cover .controls, body.shot-cover .hint { display: none; }
+body.shot-cover .app { padding: 0; gap: 0; }
+body.shot-cover .preview { flex: none; width: 100vw; height: 100vh; }
+body.shot-cover canvas { width: 100vw; height: 100vh; border-radius: 0; box-shadow: none; }

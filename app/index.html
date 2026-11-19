@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Coast Cover Studio — GTA-style cover maker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="top">
+  <h1>Neon Coast <span>Cover Studio</span></h1>
+  <p>Turn any photo and caption into GTA-style multi-panel cover art. Photos never leave your machine — everything runs offline in this page.</p>
+</header>
+<main class="app">
+  <section class="controls" aria-label="Cover controls">
+    <div class="group">
+      <h2>1 · Photos</h2>
+      <label>Photo 1 <input id="photo0" type="file" accept="image/*"></label>
+      <label>Photo 2 <input id="photo1" type="file" accept="image/*"></label>
+      <label>Photo 3 <input id="photo2" type="file" accept="image/*"></label>
+      <button id="samples" type="button">Use sample photos</button>
+      <p class="note">Panels fill from your photos — one photo across many panels, or a different photo in each.</p>
+    </div>
+    <div class="group">
+      <h2>2 · Layout</h2>
+      <div class="row" id="layouts">
+        <button type="button" data-layout="grid9" class="on">Nine-panel grid</button>
+        <button type="button" data-layout="hero">Hero + three</button>
+        <button type="button" data-layout="tilted">Tilted snapshots</button>
+        <button type="button" data-layout="strip">Photo strip</button>
+      </div>
+    </div>
+    <div class="group">
+      <h2>3 · Colour grade</h2>
+      <div class="row" id="grades">
+        <button type="button" data-grade="sunset" class="on">Sunset</button>
+        <button type="button" data-grade="neon">Neon night</button>
+        <button type="button" data-grade="gold">Vice gold</button>
+        <button type="button" data-grade="teal">Palm teal</button>
+        <button type="button" data-grade="noir">Noir pink</button>
+      </div>
+    </div>
+    <div class="group">
+      <h2>4 · Selected panel</h2>
+      <p class="note" id="panelName">Click a panel on the cover to select it.</p>
+      <label>Panel photo
+        <select id="panelPhoto">
+          <option value="0">Photo 1</option>
+          <option value="1">Photo 2</option>
+          <option value="2">Photo 3</option>
+          <option value="-1">Poster art</option>
+        </select>
+      </label>
+      <label>Zoom <input id="panelZoom" type="range" min="1" max="2.5" step="0.01" value="1"></label>
+      <label>Move left–right <input id="panelX" type="range" min="-0.4" max="0.4" step="0.01" value="0"></label>
+      <label>Move up–down <input id="panelY" type="range" min="-0.4" max="0.4" step="0.01" value="0"></label>
+    </div>
+    <div class="group">
+      <h2>5 · Words</h2>
+      <label>Caption <input id="caption" type="text" maxlength="24" value="Neon Coast"></label>
+      <label>Subtitle <input id="subtitle" type="text" maxlength="40" value="Vice City nights"></label>
+    </div>
+    <div class="group">
+      <h2>6 · Size &amp; export</h2>
+      <div class="row" id="sizes">
+        <button type="button" data-size="square">1080 × 1080</button>
+        <button type="button" data-size="portrait">1080 × 1350</button>
+        <button type="button" data-size="wide" class="on">1920 × 1080</button>
+      </div>
+      <div class="row">
+        <button id="undo" type="button">Undo</button>
+        <button id="redo" type="button">Redo</button>
+      </div>
+      <button id="export" type="button" class="big">Export PNG</button>
+      <p id="status" role="status"></p>
+    </div>
+  </section>
+  <section class="preview" aria-label="Cover preview">
+    <canvas id="cover" width="1920" height="1080" aria-label="The cover"></canvas>
+    <p class="hint">Click any panel to crop and position that photo. Export writes a PNG at the size above.</p>
+  </section>
+</main>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
